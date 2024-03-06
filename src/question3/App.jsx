@@ -9,8 +9,14 @@
 // Använd en callback-funktion för att meddela ParentComponent om användarens val.
 // ParentComponent ska ta emot och visa det valda färgalternativet.
 
+import ParentComponent from "./ParentComponent";
+
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <ParentComponent />
+    </div>
+  );
 }
 
 export default App;
