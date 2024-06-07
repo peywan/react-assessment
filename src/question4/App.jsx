@@ -16,19 +16,20 @@
 
 // Genom att använda React Context kan du skapa en tät koppling mellan
 // ColorSelector och ColorDisplay utan att direkt skicka props eller använda callbacks.
-import ColorDisplay from "./ColorDisplay";
+import React from "react";
 import ColorSelector from "./ColorSelector";
+import ColorDisplay from "./ColorDisplay";
 import { ColorProvider } from "./colorContext";
 
 function App() {
-  return (
-    <ColorProvider>
-      <div>
-        <ColorSelector />
-        <ColorDisplay />
-      </div>
-    </ColorProvider>
-  );
+    return (
+        <ColorProvider>
+            <div>
+                <ColorSelector />
+                <ColorDisplay />
+            </div>
+        </ColorProvider>
+    );
 }
 
 export default App;

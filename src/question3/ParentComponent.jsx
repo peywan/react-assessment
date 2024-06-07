@@ -1,17 +1,19 @@
+import React, { useState } from "react";
 import ChildComponent from "./ChildComponent";
-import { useState } from "react";
 
-export default function ParentComponent() {
-  const [color, setColor] = useState("");
+const ParentComponent = () => {
+    const [color, setColor] = useState("");
 
-  function handleColor(color) {
-    setColor(color);
-  }
+    const handleColor = (color) => {
+        setColor(color);
+    };
 
-  return (
-    <div>
-      <p>{color}</p>
-      <ChildComponent handleColor={handleColor} />
-    </div>
-  );
-}
+    return (
+        <div>
+            <p>Favoritfärg: {color}</p>
+            <ChildComponent handleColor={handleColor} />
+        </div>
+    );
+};
+
+export default ParentComponent;

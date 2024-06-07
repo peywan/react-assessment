@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { ColorContext } from "./colorContext";
 
-export default function ColorDisplay() {
-  const { color } = useContext(ColorContext);
+const ColorDisplay = () => {
+    const { color } = useContext(ColorContext);
 
-  return (
-    <div>
-      <p>{color}</p>
-    </div>
-  );
-}
+    return (
+        <div>
+            <p>Favoritfärg: {color}</p>
+        </div>
+    );
+};
+
+export default ColorDisplay;

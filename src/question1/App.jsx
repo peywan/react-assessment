@@ -11,48 +11,55 @@
 // med kommentarer. Användare ska kunna lägga till och ta bort kommentarer.
 // Listan är tom från början.
 
-import { useState } from "react";
 
 // Skapa Ett inputfält och en "Lägg till"-knapp för nya kommentarer.
 // och en "Ta bort"-knapp bredvid varje kommentar för att ta bort den från listan.
+import React, { useState } from "react";
 
-let count = 1;
-
-export default function App() {
+const CommentsList = () => {
   const [comments, setComments] = useState([]);
   const [input, setInput] = useState("");
 
-  function handleComment(e) {
+  const handleCommentChange = (e) => {
     setInput(e.target.value);
-  }
+  };
 
-  function handleAddComment() {
-    const comment = {
-      id: count++,
+  const handleAddComment = () => {
+    if (input.trim() === "") return;
+
+    const newComment = {
+      id: Date.now(),
       text: input,
     };
 
-    setComments([...comments, comment]);
-  }
+    setComments([...comments, newComment]);
+    setInput("");
+  };
 
-  function handleRemove(id) {
-    const filteredComments = comments.filter((comment) => comment.id != id);
-    setComments(filteredComments);
-  }
+  const handleRemoveComment = (id) => {
+    setComments(comments.filter((comment) => comment.id !== id));
+  };
 
   return (
-    <main>
-      {comments.map((comment) => {
-        return (
-          <div>
-            <p>{comment.text}</p>
-            <button onClick={() => handleRemove(comment.id)}>Remove</button>
-          </div>
-        );
-      })}
-
-      <input type="text" onChange={handleComment} />
-      <button onClick={handleAddComment}>Add</button>
-    </main>
+      <div>
+        <h2>Kommentarslista</h2>
+        <input
+            type="text"
+            value={input}
+            onChange={handleCommentChange}
+            placeholder="Skriv en kommentar"
+        />
+        <button onClick={handleAddComment}>Lägg till</button>
+        <ul>
+          {comments.map((comment) => (
+              <li key={comment.id}>
+                {comment.text}
+                <button onClick={() => handleRemoveComment(comment.id)}>Ta bort</button>
+              </li>
+          ))}
+        </ul>
+      </div>
   );
-}
+};
+
+export default CommentsList;
