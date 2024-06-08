@@ -5,7 +5,6 @@
 
 // Steg 1: Skapa en ColorContext med React Context. Denna context ska innehålla
 // användarens valda favoritfärg.
-//ss
 // Steg 2: ColorSelector-komponenten ska innehålla en dropdown-lista (select)
 // där användaren kan välja en färg. När en färg väljs, uppdatera ColorContext
 // med det nya värdet.

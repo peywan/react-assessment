@@ -8,7 +8,7 @@
 // (en sträng), med actions för att sätta en ny fråga och svara på den.
 
 // QuestionComponent: Ska visa ett inputfält där användaren kan skriva in en
-// fråga. När frågan skickas (t.ex. genom att trycka på en knapp), ska frågan
+// fråga. När frågan skickas (t.ex. gen om att trycka på en knapp), ska frågan
 // lagras i Redux store med hjälp av den action som definieras i questionSlice.
 
 // AnswerComponent: Ska visa ett inputfält och en knapp för att svara
